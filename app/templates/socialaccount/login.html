@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign in with Google | VisthaShoap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/social_login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="social-login-container">
+  <div class="social-card">
+    <h2>Sign in with Google</h2>
+    <p class="desc">You’re about to sign in securely with your Google account.</p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="google-continue-btn">Continue with Google →</button>
+    </form>
+
+    <p class="back-link">
+      Not you? <a href="{% url 'account_login' %}">Go back</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

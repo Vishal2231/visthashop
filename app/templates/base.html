@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Vistha Shoap{% endblock %}</title>
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- Extra Page-Specific CSS -->
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+  <!-- Header -->
+  {% include 'header.html' %}
+
+  <!-- Page Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 <span>VisthaShop</span>. All rights reserved.</p>
+      <p class="follow-text">Follow Us</p>
+      <div class="social-icons">
+        <a href="https://instagram.com/_monster.6161?igshid=OGQ5ZDc2ODk2ZA%3D%3D"><i class="fab fa-instagram"></i></a>
+       
+        <a href="https://www.linkedin.com/in/vishu2231"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Vishal2231"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Extra Page-Specific Scripts -->
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

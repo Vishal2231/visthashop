@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Portfolio | Vishal Navik{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="portfolio-hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="tag">Creative Portfolio</p>
+            <h1>VISHAL NAVIK</h1>
+            <p class="subtitle">Aspiring Software Developer | Data Science Enthusiast</p>
+
+            <div class="contact-info">
+                <p><strong>📞 Phone:</strong> +91 8303906146</p>
+                <p><strong>📧 Email:</strong> navikvishal708126@gmail.com</p>
+                <p><strong>📍 Address:</strong> Balua, Chandwak, Jaunpur, UP</p>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="{% static 'images/vishalnavik.png' %}" alt="Vishal Navik">
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <h2>Hello, I’m <span>Vishal Navik</span></h2>
+    <p>
+        I’m a passionate software developer with a strong foundation in backend and frontend development. 
+        With hands-on experience in Django, Java, and Data Science, I love building scalable, 
+        user-friendly, and efficient applications. My goal is to continuously evolve my skills 
+        and contribute to meaningful tech solutions.
+    </p>
+</section>
+
+<!-- ✅ Skills Section -->
+<section class="skills">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Frontend</h3>
+            <p>HTML, CSS, JavaScript</p>
+            <div class="progress"><div style="width: 90%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Backend</h3>
+            <p>Django, Servlet, JSP</p>
+            <div class="progress"><div style="width: 85%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Programming</h3>
+            <p>Python, Java, C, C++</p>
+            <div class="progress"><div style="width: 80%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Database</h3>
+            <p>MySQL</p>
+            <div class="progress"><div style="width: 75%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Data Science</h3>
+            <p>Pandas, NumPy, Matplotlib, Seaborn, Webscrapping, Neurol Network(basic),  Scikit-learn, ML (Machine-learning)</p>
+            <div class="progress"><div style="width: 70%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Other Tools</h3>
+            <p>Git, VS Code, PyCharm, Jupyter, Eclipse</p>
+            <div class="progress"><div style="width: 80%;"></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="project">
+    <div class="project-header">
+        <p class="tag">Featured Project</p>
+        <h2>VisthaShop — E-Commerce Platform</h2>
+    </div>
+
+    <div class="project-content">
+        <img src="{% static 'images/heroo.jpg' %}" alt="VisthaShop Project">
+        <div class="project-details">
+            <p>
+                VisthaShop is a full-featured e-commerce web app designed and developed by me.
+                It allows users to browse products, add to cart, checkout securely, 
+                and even supports Google authentication. The system also includes an admin dashboard
+                for product and order management.
+            </p>
+            <ul>
+                <li>🛍 Built using Django, HTML, CSS, JavaScript, and MySQL</li>
+                <li>🔒 Includes secure authentication and user sessions</li>
+                <li>📱 Fully responsive & mobile-friendly</li>
+            </ul>
+            <a href="{% url 'home' %}" class="btn">View Live Project</a>
+        </div>
+    </div>
+</section>
+
+<section class="education">
+    <h2>Education</h2>
+    <div class="edu-list">
+        <div class="edu-item">
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p>Dr. Ghanshyam Singh PG College, Varanasi — 2022–2025</p>
+            <p>Percentage: 70%</p>
+        </div>
+
+        <div class="edu-item">
+            <h3>Certifications</h3>
+            <ul>
+                <li>Python Programming – JKKB Institute (2023)</li>
+                <li>Ultimate Job Ready Data Science Course – CodeWithHarry (Ongoing)</li>
+                <li>All India Aptitude Test (NCAT) by Naukri Campus</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | VisthaShoap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="about-section">
+  <div class="about-content">
+    <h1>About VisthaShop</h1>
+    <p>
+      VisthaShop was born from a shared dream of two friends, Vishal and Astha, who believed
+      that technology and trust can bring people closer. What started as a vision to create
+      something together has grown into a space where quality, creativity, and connection meet.
+      Every product, every click, reflects our story and our commitment to you.
+    </p>
+  </div>
+</div>
+
+<!-- Main Contact Section -->
+<div class="contact-main">
+  <div class="contact-wrapper">
+
+    <!-- Left Form Section -->
+    <div class="contact-form">
+      <h2>Let's Chat, Reach Out to Us</h2>
+      <p>Have questions or feedback? We’re here to help. Send us a message and we’ll respond within 24 hours.</p>
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="name-fields">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+        </div>
+        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+        <button type="submit" class="btn-send">Send Message →</button>
+      </form>
+    </div>
+
+    <!-- Right Image + Contact Info -->
+    <div class="contact-image">
+      <div class="photo-frame">
+        <img src="{% static 'images/contact.jpg' %}" alt="VisthaShop Team">
+      </div>
+      <div class="contact-info-card">
+        <div class="info-box">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>linkdin :   https://www.linkedin.com/in/vishu2231</p>
+          </div>
+        </div>
+        <div class="info-box">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 83039***46</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+.social-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: linear-gradient(135deg, #1e1f29, #0d0d0d);
+  font-family: "Poppins", sans-serif;
+}
+
+.social-card {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-card h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  color: #222;
+}
+
+.social-card .desc {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.google-continue-btn {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.google-continue-btn:hover {
+  background-color: #3367d6;
+}
+
+.back-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.back-link a {
+  color: #4285f4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}

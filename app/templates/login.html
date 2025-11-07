@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}Login | VisthaShoap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container login-active">
+
+  <!-- Left: Image Section -->
+  <div class="auth-image">
+    <div class="overlay">
+      <h1>Welcome Back!</h1>
+      <p>Login and continue exploring your favorite products at <b>VisthaShoap</b>.</p>
+    </div>
+  </div>
+
+  <!-- Right: Form Section -->
+  <div class="auth-form">
+    <h2>Login</h2>
+    {% if messages %}
+  <div class="alert-messages">
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+
+      <button type="submit" class="btn-primary">Login →</button>
+
+      <div class="divider"><span>OR</span></div>
+      <a href="{% provider_login_url 'google' %}" class="btn-google">Continue with Google</a>
+      <p class="help-link" style="text-align:right;margin:6px 0 0;">
+  <a href="{% url 'password_reset' %}">Forgot password?</a>
+      <p class="switch">Don’t have an account? 
+        <a href="{% url 'register' %}" class="toggle-link">Register</a>
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}

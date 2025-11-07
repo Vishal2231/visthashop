@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="checkout-container">
+  <h2 class="checkout-heading">🧾 Checkout</h2>
+
+  {% if cart_items %}
+  <div class="checkout-grid">
+    <!-- ✅ ORDER SUMMARY -->
+    <div class="checkout-summary">
+      <h3>Order Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.subtotal }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="checkout-total">
+        <strong>Total: ₹{{ total_price }}</strong>
+      </div>
+    </div>
+
+    <!-- ✅ SHIPPING & PAYMENT FORM -->
+    <div class="checkout-form">
+      <h3>Shipping & Payment</h3>
+      <form method="POST" id="checkoutForm">
+        {% csrf_token %}
+
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" value="{{ request.user.get_full_name }}" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="{{ request.user.email }}" required>
+
+        <label for="address">Address</label>
+        <textarea name="address" id="address" rows="3" required></textarea>
+
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" required pattern="\d{10}" title="Enter 10-digit number">
+
+        <label for="payment_method">Payment Method</label>
+        <select name="payment_method" id="payment_method" required>
+          <option value="">-- Select Payment --</option>
+          <option value="card">Credit/Debit Card</option>
+          <option value="upi">UPI</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+
+        <div id="card-details" style="display:none;">
+          <label for="card_number">Card Number</label>
+          <input type="text" name="card_number" id="card_number" placeholder="xxxx xxxx xxxx xxxx">
+
+          <div class="card-flex">
+            <div>
+              <label for="expiry">Expiry Date</label>
+              <input type="text" name="expiry" id="expiry" placeholder="MM/YY">
+            </div>
+            <div>
+              <label for="cvv">CVV</label>
+              <input type="text" name="cvv" id="cvv" placeholder="xxx">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-place-order">Place Order →</button>
+      </form>
+    </div>
+  </div>
+  {% else %}
+  <p class="empty-cart">Your cart is empty 😢</p>
+  <a href="{% url 'home' %}" class="btn-continue">Continue Shopping</a>
+  {% endif %}
+</div>
+
+<script>
+const paymentSelect = document.getElementById('payment_method');
+const cardDetails = document.getElementById('card-details');
+
+paymentSelect.addEventListener('change', function() {
+  cardDetails.style.display = (this.value === 'card') ? 'block' : 'none';
+});
+</script>
+{% endblock %}

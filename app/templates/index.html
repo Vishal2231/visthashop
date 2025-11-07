@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | VisthaShop{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ✅ HERO SECTION -->
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-text">
+      <h1>Welcome to <span>VisthaShop</span></h1>
+      <p>Your one-stop destination for quality technology, audio, and accessories.</p>
+      <a href="{% url 'products' %}" class="btn-hero">Shop Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ CATEGORIES -->
+<section class="categories">
+  <h2 class="section-title">Shop by Category</h2>
+  <div class="category-grid">
+    <div class="category-card" onclick="window.location.href='/products/'">
+      <img src="{% static 'images/laptop.jpg' %}" alt="Technology">
+      <h3>Technology</h3>
+      <p>Explore cutting-edge gadgets and innovations.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='/products/'">
+      <img src="{% static 'images/headphones.jpg' %}" alt="Audio">
+      <h3>Audio</h3>
+      <p>Top-quality headphones and speakers.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='/products/'">
+      <img src="{% static 'images/Fashion.jpg' %}" alt="Gear">
+      <h3>Fashion</h3>
+      <p>look smart choose VisthaShop the best clothes provider.</p>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='/products/'">
+      <img src="{% static 'images/Grocery.jpg' %}" alt="Computers">
+      <h3>Grocery</h3>
+      <p>Only You care your face & health .</p>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ WHY CHOOSE US -->
+<section class="why-us">
+  <h2 class="section-title white">Why Choose Us?</h2>
+  <div class="reasons">
+    <div class="reason-card">
+      <i class="fas fa-shipping-fast"></i>
+      <h3>Fast Delivery</h3>
+      <p>Quick and safe product delivery.</p>
+    </div>
+
+    <div class="reason-card">
+      <i class="fas fa-check-circle"></i>
+      <h3>Quality Products</h3>
+      <p>We provide the most reliable brands.</p>
+    </div>
+
+    <div class="reason-card">
+      <i class="fas fa-headset"></i>
+      <h3>24/7 Support</h3>
+      <p>Our support team is always available.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

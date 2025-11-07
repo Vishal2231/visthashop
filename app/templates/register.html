@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}Register | VisthaShoap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container register-active">
+  
+  <!-- Left: Form Section -->
+  <div class="auth-form">
+    <h2>Create Account</h2>
+    <p>Join <b>VisthaShoap</b> and start shopping smarter!</p>
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email address" required>
+      <input type="password" name="password1" placeholder="Password" required>
+      <input type="password" name="password2" placeholder="Confirm Password" required>
+
+      <div class="terms">
+        <input type="checkbox" id="accept" required>
+        <label for="accept">Accept Terms & Conditions</label>
+      </div>
+
+      <button type="submit" class="btn-primary">Sign Up →</button>
+
+      <div class="divider"><span>OR</span></div>
+      <a href="{% provider_login_url 'google' %}" class="btn-google">Continue with Google</a>
+
+      <p class="switch">Already have an account? 
+        <a href="{% url 'login' %}" class="toggle-link">Login</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- Right: Image Section -->
+  <div class="auth-image">
+    <div class="overlay">
+      <h1>VisthaShoap</h1>
+      <h3>Register & Explore the Future of Shopping</h3>
+      <p>Join thousands of customers discovering the smartest way to shop online.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

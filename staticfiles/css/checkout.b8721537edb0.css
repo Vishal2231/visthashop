@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #002244, #005f73);
+  color: #fff;
+  margin: 0;
+}
+
+/* ✅ CONTAINER */
+.checkout-container {
+  padding: 70px 10%;
+  min-height: 100vh;
+}
+
+.checkout-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* ✅ GRID LAYOUT */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.checkout-summary, .checkout-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ SUMMARY */
+.checkout-summary h3 {
+  color: #4cc9f0;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.checkout-summary table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.checkout-summary th, .checkout-summary td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.checkout-summary th {
+  color: #48bfe3;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.checkout-summary td {
+  color: #e0f7ff;
+}
+
+.checkout-total {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  text-align: right;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ✅ FORM */
+.checkout-form h3 {
+  color: #4cc9f0;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.checkout-form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+  color: #e0f7ff;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.01);
+}
+
+.checkout-form ::placeholder {
+  color: #b8c4cc;
+}
+
+/* ✅ STYLING THE SELECT DROPDOWN PROPERLY */
+.checkout-form select {
+  appearance: none; /* removes default browser arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #e0f7ff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-image: linear-gradient(135deg, #4cc9f0, #0096c7);
+  background-origin: border-box;
+  background-clip: padding-box;
+  color: #002244;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Add a small dropdown arrow (custom icon) */
+.checkout-form select::after {
+  content: '▼';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+  color: #002244;
+}
+
+/* When user opens or focuses the dropdown */
+.checkout-form select:focus {
+  outline: none;
+  background-image: linear-gradient(135deg, #0096c7, #48bfe3);
+  transform: scale(1.01);
+  box-shadow: 0 0 8px rgba(72, 191, 227, 0.7);
+}
+
+/* ✅ Dropdown Menu Styling (for modern browsers) */
+.checkout-form select option {
+  background: #023047;
+  color: #e0f7ff;
+  padding: 10px;
+  border: none;
+}
+
+.checkout-form select option:hover {
+  background: #0096c7;
+  color: #fff;
+}
+
+
+/* ✅ CARD DETAILS SECTION */
+#card-details {
+  margin-top: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+#card-details label {
+  color: #aee1f9;
+}
+
+#card-details input {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#card-details input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 6px #48bfe3;
+}
+
+/* ✅ FLEX ROW FOR EXPIRY + CVV */
+.card-flex {
+  display: flex;
+  gap: 15px;
+}
+
+/* ✅ BUTTON */
+.btn-place-order {
+  width: 100%;
+  margin-top: 25px;
+  background: linear-gradient(135deg, #4cc9f0, #0096c7);
+  color: #002244;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-place-order:hover {
+  background: linear-gradient(135deg, #0096c7, #0077b6);
+  transform: translateY(-3px);
+}
+
+/* ✅ EMPTY CART */
+.empty-cart {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 50px 0 20px;
+  color: #fff;
+}
+
+.btn-continue {
+  display: inline-block;
+  background: #4cc9f0;
+  color: #002244;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-continue:hover {
+  background: #48bfe3;
+  transform: scale(1.05);
+}
+
+/* ✅ ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ RESPONSIVE */
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+  .checkout-container {
+    padding: 40px 5%;
+  }
+}

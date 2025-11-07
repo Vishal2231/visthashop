@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Profile | VisthaShoap{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-page">
+
+  <!-- Cover Banner -->
+  <section class="profile-banner">
+    <div class="overlay"></div>
+    <div class="banner-text">
+      <h1>Hello, {{ request.user.first_name|default:"Shopper" }} 👋</h1>
+      <p>Manage your account details and keep your profile up to date.</p>
+    </div>
+  </section>
+
+  <!-- Profile Card -->
+  <section class="profile-content">
+    <div class="profile-card">
+      {% if not editing %}
+      <div class="profile-header">
+        {% if profile.profile_pic %}
+        <img src="{{ profile.profile_pic.url }}" alt="Profile Picture" class="profile-pic">
+        {% else %}
+        <img src="{% static 'images/default-avatar.png' %}" alt="Profile Picture" class="profile-pic">
+        {% endif %}
+        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+        <p class="email">{{ user.email }}</p>
+      </div>
+
+      <div class="profile-info">
+        <p><strong>Phone:</strong> {{ profile.phone|default:"Not added" }}</p>
+        <p><strong>Address:</strong> {{ profile.address|default:"Not added" }}</p>
+      </div>
+
+      <div class="profile-actions">
+        <a href="?edit=true" class="btn-edit">Edit Profile</a>
+      </div>
+
+      {% else %}
+      <form method="POST" enctype="multipart/form-data" class="edit-form">
+        {% csrf_token %}
+        <h3>Edit Profile</h3>
+        <div class="form-fields">
+          {{ u_form.as_p }}
+          {{ p_form.as_p }}
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn-save">Save Changes</button>
+          <a href="{% url 'profile' %}" class="btn-cancel">Cancel</a>
+        </div>
+      </form>
+      {% endif %}
+    </div>
+  </section>
+</div>
+{% endblock %}

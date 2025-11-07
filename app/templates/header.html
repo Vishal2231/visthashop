@@ -1,0 +1,62 @@
+{% load static %}
+<header class="site-header">
+  <div class="site-container">
+
+    <!-- Logo -->
+    <div class="logo-container">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" alt="VisthaShoap Logo" class="site-logo">
+      </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button id="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-backdrop" id="nav-backdrop">
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'products' %}">Products</a></li>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
+        <li><a href="{% url 'cart' %}">Cart</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+         <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}" class="btn-nav">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}" class="btn-nav">Login</a></li>
+          <li><a href="{% url 'register' %}" class="btn-nav">Register</a></li>
+        {% endif %}
+      </ul>
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle   = document.getElementById("nav-toggle");
+  const links    = document.querySelector(".nav-links");
+  const backdrop = document.getElementById("nav-backdrop");
+
+  const closeMenu = () => {
+    links.classList.remove("open");
+    backdrop.classList.remove("show");
+  };
+
+  toggle.addEventListener("click", () => {
+    const willOpen = !links.classList.contains("open");
+    links.classList.toggle("open", willOpen);
+    backdrop.classList.toggle("show", willOpen);
+  });
+
+  // Close when tapping outside
+  backdrop.addEventListener("click", closeMenu);
+});
+</script>
+
